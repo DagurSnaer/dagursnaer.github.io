@@ -1,0 +1,187 @@
+*, *:before, *:after {
+  box-sizing: border-box; 
+}
+
+body {
+  display: grid;
+  font-family: sans-serif, helvetica;
+  margin: 0 auto;
+  grid-template-areas: "header"
+                       "midja"
+                       "vinstri"
+                       "haegri"
+                       "footer"
+                       "topnav";
+}
+body {
+line-height: 1.5em;
+}
+.topnav {
+background: #1c2d1c; 
+grid-area: topnav;
+}
+.header {
+background: tomato;
+grid-area: header; 
+}
+.footer {
+background: lightgreen; 
+grid-area: footer;
+}
+.midja {
+background: skyblue; 
+grid-area: midja;
+}
+.vinstri {
+background: gold; 
+grid-area: vinstri;
+}
+.haegri {
+background: pink; 
+grid-area: haegri;
+}
+
+
+.header,
+.footer,
+.midja,
+.vinstri, 
+.haegri {
+padding: 1em; 
+}
+
+
+
+.header h1 {
+color: #fff;
+line-height: 1.2;
+font-weight: normal;
+}
+.midja h2 {
+margin: .7em 0 .8em 0;
+}
+.midja h4 {
+text-align: justify;
+margin: .4em 0;
+}
+.midja p {
+text-align: justify;
+}
+
+/* ========================================
+Efnisyfirlit (mobile)
+======================================== */
+.topnav ul{
+background: #1c2d1c; 
+}
+.topmenu {
+display: grid;
+padding: 0;
+margin: 0;
+list-style: none; 
+}
+.topmenu li {
+border: 0;
+border-bottom: 1px solid lime; 
+padding: 0;
+margin:0;
+}
+.topmenu a {
+display: block;     /* ath! */
+color: white;
+text-decoration: none;
+text-align: center;
+padding: .4em 1em; 
+}
+.topmenu a:hover,
+.topmenu a:active,
+.virkur {
+color: black !important;
+background-color: lime;
+}
+
+
+
+
+/* =======================================
+   myndvinnsla  
+  ======================================== */
+
+/*  hafið myndir <img> alltaf í max-width: 100%; stærð 
+    munið að vinna og þjappa myndir í photoshop ! */
+  picture img {
+    width: 100%; 
+  }
+  .myndabox {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .myndabox img {
+    display: block;
+    width: 160px;
+    margin: 0;
+  }
+
+/*  ========================================
+Viðmið - breakpoints 30em = 480px + 
+========================================*/
+
+  /* kóði sem yfirritar fyrri skipanir og nýjar skipanir sem eiga við 30em skjástærð */
+
+/*  ========================================
+Viðmið - breakpoints 37.5em = 600px + 
+========================================*/
+
+  /* kóði sem yfirritar fyrri skipanir og nýjar skipanir sem eiga við 37.5em skjástærð */
+  @media screen and (min-width: 37.5em) {
+    body {
+        grid-template-rows: 50 1fr 3fr 1fr;
+        grid-template-areas:"topnav" 
+                            "header"
+                            "midja"
+                            "vinstri"
+                            "haegri"
+                            "footer";
+    }
+    .main {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "haegri midja"
+                             "vinstri midja"
+    }
+  
+    .myndabox {
+      flex-flow: row wrap;
+    }
+    .topmenu{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding: 0;
+    }
+  }
+/* ========================================
+Viðmið - breakpoints 48em = 760px +
+======================================== */
+
+  /* kóði sem yfirritar fyrri skipanir og nýjar skipanir sem eiga við 48em skjástærð */  
+  @media screen and (min-width: 48em) {
+    body {
+        max-width: 60em;
+    }
+    html {
+        background: beige;
+    }
+    .main {
+        display: grid;
+        height: 40em;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: "vinstri midja haegri";
+    }
+    .myndabox {
+        flex-flow: row nowrap;
+    }
+  }
+
+
